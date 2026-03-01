@@ -1,6 +1,7 @@
 node_modules
 # Cypress reports
 cypress/reports/
+cypress/results/
 mochawesome-report/
-cypress/assets/
+assets/
 cypress/screenshots/

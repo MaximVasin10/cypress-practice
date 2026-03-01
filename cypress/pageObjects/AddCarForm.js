@@ -9,8 +9,8 @@ class AddCarForm {
     get submitButton() { return cy.get('.modal-content .btn-primary').contains('add', { matchCase: false }); }
 
     addCar() {
-        this.brandSelect.select(CAR_DATA.brand);
-        this.modelSelect.select(CAR_DATA.model);
+        this.brandSelect.select(CAR_DATA.brandName);
+        this.modelSelect.select(CAR_DATA.modelName);
         this.mileageInput.type(CAR_DATA.milleage);
         this.submitButton.click();
     }

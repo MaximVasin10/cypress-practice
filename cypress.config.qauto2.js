@@ -5,7 +5,8 @@ module.exports = defineConfig({
     ...baseConfig,
 
     e2e: {
-        baseUrl: 'https://guest:welcome2qauto@qauto2.forstudy.space/',
+        ...baseConfig.e2e,
+        baseUrl: 'https://guest:welcome2qauto@qauto2.forstudy.space',
         env: {
             userEmail: 'testmaxvs2@mail.com',
             userPassword: 'Great123!'

@@ -1,7 +1,9 @@
 export const CAR_DATA = {
-    brand: 'BMW',
-    model: 'Z3',
-    milleage: 1010
+    brandName: 'BMW',
+    modelName: 'Z3',
+    milleage: 1010,
+    carBrandId: 2, //BMW
+    carModelId: 10 //Z3
 };
 
 export const EXPENSE_DATA = {

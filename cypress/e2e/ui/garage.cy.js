@@ -1,13 +1,15 @@
-import header from '../pageObjects/Header';
-import garagePage from '../pageObjects/GaragePage';
-import addCarForm from '../pageObjects/AddCarForm';
-import addExpenseForm from '../pageObjects/AddExpenseForm';
-import expensePage from '../pageObjects/ExpensePage'
+import '../../support/commands';
+import header from '../../pageObjects/Header';
+import garagePage from '../../pageObjects/GaragePage';
+import addCarForm from '../../pageObjects/AddCarForm';
+import addExpenseForm from '../../pageObjects/AddExpenseForm';
+import expensePage from '../../pageObjects/ExpensePage'
+import { after } from 'mocha';
 
 describe('Garage: add a car', () => {
   beforeEach(() => {
     cy.visit('/');
-    header.guestLogInLink.click();
+    cy.login();
   });
 
   it('should allow user to add a car to the garage', () => {
@@ -20,12 +22,18 @@ describe('Garage: add a car', () => {
     garagePage.carName.should('be.visible');
     garagePage.carMileageInput.should('be.visible');
   });
+
+
+  after(() => {
+    cy.cleanupCars();
+  });
+
 });
 
 describe('Garage: add a fuel expense for a newly created car', () => {
   beforeEach(() => {
     cy.visit('/');
-    header.guestLogInLink.click();
+    cy.login();
   });
 
   it('should allow user to add a fuel expense to the newly created car', () => {
@@ -42,4 +50,10 @@ describe('Garage: add a fuel expense for a newly created car', () => {
 
 
   });
+
+
+  after(() => {
+    cy.cleanupCars();
+  });
+
 });

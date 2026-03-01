@@ -1,9 +1,9 @@
-import header from '../pageObjects/Header';
-import homepage from '../pageObjects/Homepage';
-import loginForm from '../pageObjects/LoginForm';
-import registrationForm from '../pageObjects/RegistrationForm';
+import header from '../../pageObjects/Header';
+import homepage from '../../pageObjects/Homepage';
+import loginForm from '../../pageObjects/LoginForm';
+import registrationForm from '../../pageObjects/RegistrationForm';
 
-import { VALIDATION_MESSAGES, USER_DATA } from '../support/testData/registrationData';
+import { VALIDATION_MESSAGES, USER_DATA } from '../../support/testData/registrationData';
 
 describe('Registration: basic checks', () => {
 
