@@ -1,0 +1,6 @@
+node_modules
+# Cypress reports
+cypress/reports/
+mochawesome-report/
+cypress/assets/
+cypress/screenshots/

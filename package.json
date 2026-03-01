@@ -1,0 +1,30 @@
+{
+  "name": "cypress",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open:qauto": "cypress open --e2e --config-file cypress.config.qauto.js --browser chrome",
+    "cy:open:qauto2": "cypress open --e2e --config-file cypress.config.qauto2.js --browser chrome",
+    "cy:run:qauto": "cypress run --e2e --config-file cypress.config.qauto.js --browser chrome",
+    "cy:run:qauto2": "cypress run --e2e --config-file cypress.config.qauto2.js --browser chrome",
+    "clean:reports": "if exist cypress\\reports rmdir /s /q cypress\\reports",
+    "merge:reports": "npx mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/combined-report.json",
+    "generate:report": "npx mochawesome-report-generator cypress/reports/combined-report.json --reportDir cypress/reports --assetsDir assets --reportFilename index.html",
+    "test:report:qauto2": "npm run clean:reports && npm run cy:run:qauto2 && npm run merge:reports && npm run generate:report"
+  },
+  "dependencies": {
+    "cypress": "^15.10.0"
+  },
+  "devDependencies": {
+    "mkdirp": "^3.0.1",
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.1.1",
+    "mochawesome-report-generator": "^6.3.2",
+    "rimraf": "^6.1.3"
+  }
+}

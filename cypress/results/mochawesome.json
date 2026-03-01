@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-02-28T20:24:49.771Z",
+    "end": "2026-02-28T20:24:58.749Z",
+    "duration": 8978,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d7bfff4d-e490-4909-959c-14cec35d61d4",
+      "title": "",
+      "fullFile": "cypress\\e2e\\registration.cy.js",
+      "file": "cypress\\e2e\\registration.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "66fb27ef-51e2-43c4-a98c-ff3a63218f3f",
+          "title": "Registration: Verify Succesfull registration & user already exists cases",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should register a new user successfully",
+              "fullTitle": "Registration: Verify Succesfull registration & user already exists cases Should register a new user successfully",
+              "timedOut": null,
+              "duration": 6975,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const uniqueEmail = _registrationData.USER_DATA.getUniqueEmail();\n_RegistrationForm.default.nameInput.type(_registrationData.USER_DATA.firstName);\n_RegistrationForm.default.lastNameInput.type(_registrationData.USER_DATA.lastName);\n_RegistrationForm.default.emailInput.type(uniqueEmail);\n_RegistrationForm.default.passwordInput.type(_registrationData.USER_DATA.validPassword, {\n  sensitive: true\n});\n_RegistrationForm.default.repeatPasswordInput.type(_registrationData.USER_DATA.validPassword, {\n  sensitive: true\n});\n_RegistrationForm.default.registerButton.should('not.be.disabled').click();\n_RegistrationForm.default.registrationCompleteMessage.should('be.visible');",
+              "err": {},
+              "uuid": "e989c73e-b263-4844-b1e9-5a25459895e5",
+              "parentUUID": "66fb27ef-51e2-43c4-a98c-ff3a63218f3f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should show error when user already exists",
+              "fullTitle": "Registration: Verify Succesfull registration & user already exists cases Should show error when user already exists",
+              "timedOut": null,
+              "duration": 1940,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_RegistrationForm.default.nameInput.type(_registrationData.USER_DATA.firstName);\n_RegistrationForm.default.lastNameInput.type(_registrationData.USER_DATA.lastName);\n_RegistrationForm.default.emailInput.type(_registrationData.USER_DATA.staticEmail);\n_RegistrationForm.default.passwordInput.type(_registrationData.USER_DATA.validPassword, {\n  sensitive: true\n});\n_RegistrationForm.default.repeatPasswordInput.type(_registrationData.USER_DATA.validPassword, {\n  sensitive: true\n});\n_RegistrationForm.default.registerButton.click();\n_RegistrationForm.default.userAlreadyExistErrorMessage.should('be.visible');",
+              "err": {},
+              "uuid": "95fdfeee-c614-4bc2-84f7-f90888378674",
+              "parentUUID": "66fb27ef-51e2-43c4-a98c-ff3a63218f3f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e989c73e-b263-4844-b1e9-5a25459895e5",
+            "95fdfeee-c614-4bc2-84f7-f90888378674"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8915,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
