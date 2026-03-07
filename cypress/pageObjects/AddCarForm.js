@@ -8,10 +8,10 @@ class AddCarForm {
     get addButton() { return cy.get('.modal-footer .btn-primary'); }
     get submitButton() { return cy.get('.modal-content .btn-primary').contains('add', { matchCase: false }); }
 
-    addCar() {
-        this.brandSelect.select(CAR_DATA.brandName);
-        this.modelSelect.select(CAR_DATA.modelName);
-        this.mileageInput.type(CAR_DATA.milleage);
+    addCar(brand, model, mileage) {
+        this.brandSelect.select(brand);
+        this.modelSelect.select(model);
+        this.mileageInput.clear().type(mileage);
         this.submitButton.click();
     }
 

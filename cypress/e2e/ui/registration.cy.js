@@ -11,18 +11,18 @@ describe('Registration: basic checks', () => {
     cy.visit('/');
   });
 
-  it('Opening the registration widget from the main page', () => {
+  it('Opening the registration form from the main page', () => {
     homepage.signUpButton.click();
     registrationForm.modalTitle.should('be.visible').and('have.text', 'Registration');
   });
 
-  it('Opening the registration widget from the login form', () => {
+  it('Opening the registration form from the login form', () => {
     header.signInButton.click();
     loginForm.registrationButton.click();
     registrationForm.modalTitle.should('be.visible').and('have.text', 'Registration');
   });
 
-  it('Observe registration widget', () => {
+  it('Observe registration form', () => {
     homepage.signUpButton.click();
     registrationForm.modalTitle.should('be.visible');
     registrationForm.nameInput.should('be.visible');
@@ -34,7 +34,7 @@ describe('Registration: basic checks', () => {
     registrationForm.registerButton.should('be.visible');
   });
 
-  it('Close registration widget by "X" button', () => {
+  it('Close registration form by "X" button', () => {
     homepage.signUpButton.click();
     registrationForm.closeButton.click();
     registrationForm.modalContent.should('not.exist');

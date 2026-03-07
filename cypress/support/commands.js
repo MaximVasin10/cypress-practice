@@ -28,16 +28,23 @@ Cypress.Commands.add('login', () => {
 });
 
 Cypress.Commands.add('loginViaApi', () => {
-    cy.request({
-        method: 'POST',
-        url: '/api/auth/signin',
-        body: {
-            email: Cypress.env('userEmail'),
-            password: Cypress.env('userPassword'),
-            remember: false
-        }
-    }).then((response) => {
-        expect(response.status).to.eq(200);
+    const email = Cypress.env('userEmail');
+    const password = Cypress.env('userPassword');
+
+    cy.session([email, password], () => {
+        cy.request({
+            method: 'POST',
+            url: '/api/auth/signin',
+            body: {
+                email: email,
+                password: password,
+                remember: false
+            }
+        }).then((response) => {
+            expect(response.status).to.eq(200);
+        });
+    }, {
+        cacheAcrossSpecs: true
     });
 });
 
