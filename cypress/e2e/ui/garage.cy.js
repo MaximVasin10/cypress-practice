@@ -1,10 +1,8 @@
 import '../../support/commands';
-import header from '../../pageObjects/Header';
 import garagePage from '../../pageObjects/GaragePage';
 import addCarForm from '../../pageObjects/AddCarForm';
 import addExpenseForm from '../../pageObjects/AddExpenseForm';
 import expensePage from '../../pageObjects/ExpensePage'
-import { after } from 'mocha';
 
 describe('Garage: add a car', () => {
   beforeEach(() => {
@@ -16,7 +14,7 @@ describe('Garage: add a car', () => {
 
     garagePage.addCarButton.click();
 
-    addCarForm.addCar();
+    addCarForm.addCar('Audi', 'TT', 111);
 
     garagePage.carLogoImage.should('be.visible');
     garagePage.carName.should('be.visible');
@@ -40,7 +38,7 @@ describe('Garage: add a fuel expense for a newly created car', () => {
 
     garagePage.addCarButton.click();
 
-    addCarForm.addCar();
+    addCarForm.addCar('BMW', 'Z3', 222);
 
     garagePage.addFuelExpenseButton.click();
 
